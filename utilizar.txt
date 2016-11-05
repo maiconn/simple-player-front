@@ -1,0 +1,2 @@
+ var res = encodeURIComponent(uri);
+    document.getElementById("demo").innerHTML = res;

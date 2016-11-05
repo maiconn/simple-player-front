@@ -1,0 +1,18 @@
+<div ng-controller="playerController">
+    <div class="row text-center">
+        <div class="col-xs-2 col-sm-2 col-lg-2">{{trackTitle != '' ? indexTrack + 1 : ''}}</div>
+        <div class="col-xs-10 col-sm-10 col-lg-10">{{trackTitle}}</div>
+    </div>
+    <div class="row">
+        <div id="audio0" class="col-xs-12 col-sm-12 col-lg-12 text-center">
+            <audio style="width: 100%" preload id="audio1" controls="controls">Your browser does not support HTML5 Audio!</audio>
+        </div>
+    </div>
+    <div class="row" style="padding-bottom: 0.5em;">
+       <div id="tracks" class="col-xs-12 col-sm-12 col-lg-12 text-center">
+            <a ng-click="btnPrevClick()" class="glyphicon glyphicon-backward btn btn-default"></a>
+            <a ng-click="btnNextClick()" class="glyphicon glyphicon-forward btn btn-default"></a>
+            <a class="{{aleatorio == true ? 'glyphicon glyphicon-random' : 'glyphicon glyphicon-retweet'}} btn btn-default" ng-click="aleatorio = !aleatorio"></a>
+        </div>              
+    </div> 
+</div>

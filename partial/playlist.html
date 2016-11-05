@@ -1,0 +1,39 @@
+<div ng-controller="playlistControler">
+    <div class="container">
+        <div class="panel panel-primary">
+          <div class="panel-heading" ng-click="mostraPlaylist = !mostraPlaylist">
+            <a title="mostra/esconder playlist" class="glyphicon {{mostraPlaylist == true ? 'glyphicon glyphicon-resize-small' : 'glyphicon glyphicon-resize-full'}} btn btn-default"></a>
+            Playlist
+          </div>
+          <div class="panel-body" ng-show="mostraPlaylist">
+            <div class="row">
+              <div class="col-xs-12 col-sm-12 col-lg-12">
+                  <input ng-model="filtro" type="text" class="form-control" placeholder="Filtro De Faixas" aria-describedby="basic-addon1">
+              </div>                             
+            </div>
+            <ul class="list-group" data-as-sortable="lista.dragControlListeners" data-ng-model="public.getTracks()" >
+                <li data-ng-repeat="track in public.getTracks() | filter : filtro" data-as-sortable-item ng-click="reproduzirFaixa(track)" class="list-group-item {{$index == selectedTrack ? 'list-group-item-success' : ''}}">
+                    <div class="container-fluid" data-as-sortable-item-handle>
+                      <div class="row-fluid">
+                        <div class="span1">
+                          <div class="col-xs-2 col-sm-2 col-lg-2">
+                            <a href="">
+                                {{item.pasta}}    
+                            </a> 
+                          {{$index + 1}}</div>
+                        </div>
+                        <div class="span11">
+                          <div class="col-xs-10 col-sm-10 col-lg-10">
+                            <a>
+                              {{track.name}}
+                            </a> 
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </li>
+            </ul>
+          </div>
+        </div>
+    </div>
+</div>

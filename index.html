@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <!-- JS (load angular, ui-router, and our custom js file) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
+
+    <script type="text/javascript" src="node_modules/ng-sortable/dist/ng-sortable.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="node_modules/ng-sortable/dist/ng-sortable.min.css">
+
+
+
+    <title>Simple Player - O Melhor Player da Internet</title>
+    <meta charset='utf-8'></meta>
+    <script src="app.js"></script>
+    <script src="controller/player.js"></script>
+    <script src="controller/playlist.js"></script>
+    <script src="controller/lista.js"></script>
+</head>
+
+<!-- apply our angular app to our site -->
+<body ng-app="app">
+    <a class="navbar-fixed-top glyphicon glyphicon-arrow-up btn" onclick="topo();">Topo</a>
+    <nav class="navbar navbar-default ">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Simple Player</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <!--<li><a ui-sref="player">Player</a></li> -->
+            <!--<li><a ui-sref="lista">Lista</a></li> -->
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Login</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+        <ng-include src="'partial/player.html'">
+        </ng-include>
+      </div>
+    </nav>
+
+<div class="container" id="top">
+    <div ui-view></div>
+    <ng-include src="'partial/playlist.html'">
+    </ng-include>
+    <ng-include src="'partial/lista.html'">
+    </ng-include>
+</div>
+<div class="text-center">
+    <p>Create by Maicon M. Gerardi </p>
+    <p><a href="mailto:maicon.gerardi@gmail.com?Subject=SimplePlayer" target="_top">maicon.gerardi@gmail.com</a></p>
+</div>
+
+<script>
+    $(".nav a").on("click", function(){
+       $(".nav").find(".active").removeClass("active");
+       $(this).parent().addClass("active");
+    });
+</script>
+
+</body>
+</html>

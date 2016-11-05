@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app="playerApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Player</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./css/player.css">
+    
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.js"></script>
+    <script src='http://api.html5media.info/1.1.8/html5media.min.js'></script>
+    <script src="./js/player.js"></script>
+</head>
+<body ng-controller="playerController" id="playerController">
+    <div class="container">
+        <div class="column center">
+            <h1>Simple Player</h1>
+            <h5>O Melhor Player Da Internet</h5><br/>
+            <h6>{{playlist}}</h6>
+        </div>
+        <div class="column add-bottom">
+            <div id="mainwrap">
+
+                <div id="nowPlay">
+                    <span class="left" id="npAction">{{statusReproducao}}</span><br/>
+                    <span class="right" id="npTitle">{{indexTrack + 1}} - {{trackTitle}}</span>
+                </div>
+                <div id="audiowrap">
+                    <div id="audio0">
+                        <audio preload id="audio1" controls="controls">Your browser does not support HTML5 Audio!</audio>
+                    </div>
+                    <div id="tracks">
+                        <a id="btnPrev">&laquo;</a>
+                        <a id="btnNext">&raquo;</a>
+                        <a id="btnAleatorio" ng-click="aleatorioOnOf()">{{aleatorio == true ? 'On' : 'Off'}}</a>
+                    </div>                    
+                </div>
+                <div id="plwrap">
+                    <input type="text" ng-model="filtro" style="width: 100%; height: 50px; font-size:24px;">
+                    <ul id="plList">
+                        <li ng-repeat="track in tracks | filter : filtro">
+                            <div class="plItem" ng-click="playTrack(track)">
+                                <div class="plNum">{{$index + 1}}</div>
+                                <div class="plTitle">{{track.name}}</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="column add-bottom center">
+            <p>Created by Maicon M Gerardi.</p>
+        </div>
+    </div>
+</body>
+</html>
