@@ -11,10 +11,12 @@ app
     $scope.mostraPlaylist = false;
     $scope.public = public;
     $scope.selectedTrack = 0;
+    $scope.trackx = public.getTracks();
     
     $scope.carregarPlaylist = function(){
         $http.get(constantes.REST_SERVER + '/playlist', { params: {p : $scope.playlist} })
         .then(function(response) {
+            $scope.trackx = response.data;
             public.setTracks(response.data);
             public.setIndexTrack(0);
             $rootScope.$emit("reproduzirPlaylist", { });
@@ -33,15 +35,13 @@ app
 
     $scope.reproduzirFaixa = function(track){
         $scope.selectedTrack = getIndex(public.getTracks(), track.name);
-        $rootScope.$emit("reproduzirFaixa", { track : track});
+        public.setIndexTrack($scope.selectedTrack);
+        $rootScope.$emit("reproduzirFaixa", { });
     }
 
     $scope.dragControlListeners = {
         accept: function (sourceItemHandleScope, destSortableScope) {return true;},//override to determine drag is allowed or not. default is true.
         itemMoved: function (event) {/*Do what you want*/},
         orderChanged: function(event) {/*Do what you want*/}
-    };
-
-    $scope.dragControlListeners1 = {
     };
 });

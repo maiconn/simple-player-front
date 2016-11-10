@@ -76,6 +76,6 @@ app
     }); 
 
     $rootScope.$on("reproduzirFaixa", function(obj, params){
-        $scope.playTrack(params.track)
+        $scope.playTrack(public.getTracks()[public.getIndexTrack()]);
     }); 
 });

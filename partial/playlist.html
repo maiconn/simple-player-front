@@ -11,8 +11,8 @@
                   <input ng-model="filtro" type="text" class="form-control" placeholder="Filtro De Faixas" aria-describedby="basic-addon1">
               </div>                             
             </div>
-            <ul class="list-group" data-as-sortable="lista.dragControlListeners" data-ng-model="public.getTracks()" >
-                <li data-ng-repeat="track in public.getTracks() | filter : filtro" data-as-sortable-item ng-click="reproduzirFaixa(track)" class="list-group-item {{$index == selectedTrack ? 'list-group-item-success' : ''}}">
+            <ul class="list-group" data-as-sortable="dragControlListeners" data-ng-model="trackx" >
+                <li data-ng-repeat="track in trackx | filter : filtro" data-as-sortable-item ng-click="reproduzirFaixa(track)" class="list-group-item {{$index == selectedTrack ? 'list-group-item-success' : ''}}">
                     <div class="container-fluid" data-as-sortable-item-handle>
                       <div class="row-fluid">
                         <div class="span1">
