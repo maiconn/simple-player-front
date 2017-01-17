@@ -1,6 +1,6 @@
 var app = angular.module('app', ['ui.router', 'as.sortable']);
 
-const URL = "simpleplayer.ddns.net";
+const URL = "127.0.0.1";
 app.constant('constantes', {
     SERVER_URL: URL,
     REST_SERVER: "http://"+ URL +":8080/api"
